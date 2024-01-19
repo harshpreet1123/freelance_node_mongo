@@ -7,6 +7,7 @@ export interface IFreelancer extends Document {
     password: string;
     skills: string[];
     description?: string;
+    bid_token:number;
     created_at?: Date;
 }
 
@@ -16,6 +17,7 @@ const FreelancerSchema = new Schema<IFreelancer>({
     password: { type: String, required: true, validate:{validator:passwordValidator,message:"Password must be atleast 6 characters and at least one digit and one character"}},
     skills:[{type:String,required:true}],
     description:{type:String},
+    bid_token:{types:Number},
     created_at:{type:Date, default:Date.now},
 });
 
